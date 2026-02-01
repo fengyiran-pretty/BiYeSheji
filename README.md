@@ -42,6 +42,35 @@ BiYeSheji/
 
 ## 🚀 快速开始
 
+### 在WSL中安装（推荐Windows用户）
+
+如果您使用Windows系统，建议在WSL（Windows Subsystem for Linux）中运行此项目以获得最佳性能。
+
+**🎯 一键安装**:
+```bash
+# 在WSL终端中运行
+bash <(curl -s https://raw.githubusercontent.com/fengyiran-pretty/BiYeSheji/main/wsl_setup.sh)
+```
+
+**📚 详细指南**:
+- [WSL项目复制指南](WSL项目复制指南.md) - 完整的安装和配置文档
+- [WSL快速参考](WSL快速参考.txt) - 一页纸速查卡片
+- [WSL图解教程](WSL图解教程.md) - 图文并茂的详细教程
+
+**手动安装**:
+```bash
+# 1. 克隆项目
+cd ~/projects
+git clone https://github.com/fengyiran-pretty/BiYeSheji.git
+cd BiYeSheji
+
+# 2. 安装依赖
+pip3 install -r requirements.txt
+
+# 3. 运行
+python3 persistent_server.py
+```
+
 ### 环境要求
 
 - Python 3.8+

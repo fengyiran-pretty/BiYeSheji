@@ -1,0 +1,192 @@
+╔══════════════════════════════════════════════════════════════════════════╗
+║                                                                          ║
+║           📋 WSL项目复制 - 快速参考卡片                                  ║
+║                                                                          ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  方法一：Git克隆（⭐推荐）                                               ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+    1. 打开WSL终端
+       Windows开始菜单 → 搜索"WSL"或"Ubuntu"
+
+    2. 克隆项目
+       cd ~/projects
+       git clone https://github.com/fengyiran-pretty/BiYeSheji.git
+       cd BiYeSheji
+
+    3. 安装依赖
+       pip3 install -r requirements.txt
+
+    4. 运行项目
+       python3 persistent_server.py
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  方法二：文件复制                                                        ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+    Windows路径 → WSL路径映射：
+    C:\            →  /mnt/c/
+    D:\            →  /mnt/d/
+
+    复制命令：
+    wsl
+    mkdir -p ~/projects
+    cp -r /mnt/c/Users/YourUsername/Documents/BiYeSheji ~/projects/
+    cd ~/projects/BiYeSheji
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  方法三：压缩包传输                                                      ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+    Windows中：
+    右键项目文件夹 → 发送到 → 压缩文件夹
+
+    WSL中：
+    wsl
+    cd ~/projects
+    unzip /mnt/c/Users/YourUsername/Downloads/BiYeSheji.zip
+    cd BiYeSheji
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  方法四：直接访问（无需复制）                                            ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+    从WSL访问Windows文件：
+    wsl
+    cd /mnt/c/Users/YourUsername/Documents/BiYeSheji
+    python3 persistent_server.py
+
+    从Windows访问WSL文件：
+    资源管理器地址栏输入：\\wsl$\Ubuntu\home\username\projects\BiYeSheji
+
+    ⚠️  注意：跨文件系统性能较慢，建议复制到WSL本地
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  常用命令                                                                ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+    启动WSL
+    wsl
+
+    查看WSL主目录
+    cd ~
+    pwd
+
+    安装Python（如果没有）
+    sudo apt update
+    sudo apt install python3 python3-pip -y
+
+    验证安装
+    python3 --version
+    pip3 --version
+
+    查看项目结构
+    ls -la
+    tree -L 2
+
+    修复文件权限
+    find . -type f -name "*.py" -exec chmod 644 {} \;
+    chmod +x persistent_server.py
+
+    运行项目
+    python3 persistent_server.py
+    python3 simple_demo.py
+
+    退出WSL
+    exit
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  路径映射速查                                                            ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+    Windows                                WSL
+    ────────────────────────────────────────────────────────────────
+    C:\                                 →  /mnt/c/
+    C:\Users\                           →  /mnt/c/Users/
+    C:\Users\YourName\Documents\        →  /mnt/c/Users/YourName/Documents/
+
+    WSL                                    Windows
+    ────────────────────────────────────────────────────────────────
+    /home/username/                     →  \\wsl$\Ubuntu\home\username\
+    ~/projects/                         →  \\wsl$\Ubuntu\home\username\projects\
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  故障排除                                                                ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+    问题：WSL未安装
+    解决：Windows PowerShell (管理员)
+         wsl --install
+
+    问题：Python未安装
+    解决：sudo apt update
+         sudo apt install python3 python3-pip -y
+
+    问题：权限错误
+    解决：chmod +x *.py
+         find . -name "*.py" -exec chmod 644 {} \;
+
+    问题：Git克隆失败
+    解决：ping github.com
+         使用HTTPS而不是SSH
+
+    问题：运行很慢
+    解决：确保项目在WSL本地（~/projects/）
+         而不是Windows目录（/mnt/c/）
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  推荐工作流程                                                            ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+    1. 使用Git克隆到WSL
+       cd ~/projects
+       git clone https://github.com/fengyiran-pretty/BiYeSheji.git
+
+    2. 安装依赖
+       cd BiYeSheji
+       pip3 install -r requirements.txt
+
+    3. 运行项目
+       python3 persistent_server.py
+
+    4. 在浏览器访问
+       http://localhost:7860
+
+    5. 使用VS Code（可选）
+       安装"Remote - WSL"扩展
+       在WSL中: code .
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  项目结构验证                                                            ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+    复制完成后应该有：
+    ✅ README.md
+    ✅ requirements.txt
+    ✅ data_processing/
+    ✅ models/
+    ✅ visualization/
+    ✅ web_app/
+    ✅ tests/
+    ✅ simple_demo.py
+    ✅ persistent_server.py
+    ✅ 各种.md文档
+
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║                                                                          ║
+║  📖 详细指南：WSL项目复制指南.md                                         ║
+║  🚀 快速开始：README.md                                                  ║
+║                                                                          ║
+╚══════════════════════════════════════════════════════════════════════════╝
