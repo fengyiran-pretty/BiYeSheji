@@ -145,5 +145,6 @@ if __name__ == "__main__":
     interface.launch(
         server_name="0.0.0.0",
         server_port=7860,
-        share=True  # 创建公共链接
+        share=False,  # 禁用公共链接以避免连接问题
+        quiet=False
     )
