@@ -168,10 +168,23 @@ evaluator.save_results(results, 'results')
 ### 启动 Web 应用
 
 ```bash
+# 方法1: 直接运行
 python web_app/app.py --model_path checkpoints/best_model.pth --model_type resnet50 --port 7860
+
+# 方法2: 使用启动脚本（推荐）
+python launch_web_app.py
+
+# 方法3: 演示模式（不需要模型）
+python demo_web_app.py
 ```
 
 访问 `http://localhost:7860` 使用 Web 界面。
+
+**详细文档**:
+- [界面功能实现总结](界面功能实现总结.md) - Web应用完整说明
+- [快速参考](快速参考.md) - 一页纸速查手册
+- [WEB应用使用说明](WEB应用使用说明.md) - 详细使用指南
+- [界面展示图解](界面展示图解.md) - 界面结构和代码图解
 
 ## 📊 性能指标
 
